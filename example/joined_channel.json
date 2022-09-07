@@ -1,0 +1,24 @@
+{
+  "s": 0,
+  "d": {
+    "channel_type": "GROUP",
+    "type": 255,
+    "target_id": "5566893662482870",
+    "author_id": "1",
+    "content": "[系统消息]",
+    "extra": {
+      "type": "joined_channel",
+      "body": {
+        "user_id": "1643618681",
+        "channel_id": "4425445620068386",
+        "joined_at": 1662560544824
+      }
+    },
+    "msg_id": "b33ca383-3e51-4853-b05c-29ab71766a09",
+    "msg_timestamp": 1662560544846,
+    "nonce": "",
+    "from_type": 1,
+    "verify_token": "hl-XHgnjH0cGuyAt"
+  },
+  "sn": 41
+}
