@@ -1,9 +1,0 @@
-{
-  "s": 0,
-  "d": {
-    "type": 255,
-    "channel_type": "WEBHOOK_CHALLENGE",
-    "challenge": "bkes654x09XY",
-    "verify_token": "xxxxxx"
-  }
-}
