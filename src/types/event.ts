@@ -5,6 +5,48 @@ interface challengeD {
   verify_token: string
 }
 
+interface joinChannelD {
+  channel_type: string
+  type: number
+  target_id: string
+  author_id: string
+  content: string
+  extra: {
+    type: string
+    body: {
+      user_id: string
+      channel_id: string
+      joined_at: number
+    }
+  }
+  msg_id: string
+  msg_timestamp: number
+  nonce: string
+  from_type: number
+  verify_token: string
+}
+
+interface exitChannelD {
+  channel_type: string
+  type: number
+  target_id: string
+  author_id: string
+  content: string
+  extra: {
+    type: string
+    body: {
+      user_id: string
+      channel_id: string
+      exited_at: number
+    }
+  }
+  msg_id: string
+  msg_timestamp: number
+  nonce: string
+  from_type: number
+  verify_token: string
+}
+
 interface messageD {
   channel_type: string
   type: number
@@ -61,4 +103,4 @@ interface baseEvent<T> {
   sn?: number
 }
 
-export { baseEvent, challengeD, messageD }
+export { baseEvent, challengeD, messageD, joinChannelD, exitChannelD }
