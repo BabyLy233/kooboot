@@ -15,3 +15,9 @@
 3. pnpm run serve
 4. 配合 go-cqhttp 即可开始使用
 
+## RoadMap
+- [x] 文字消息
+- [x] 图片消息
+- [x] 进出频道提示
+- [ ] QQ群消息同步至 KooK
+- [ ] 查询某玩家状态

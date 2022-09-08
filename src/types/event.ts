@@ -47,6 +47,52 @@ interface exitChannelD {
   verify_token: string
 }
 
+interface picMsgD {
+  channel_type: string
+  type: number
+  target_id: string
+  author_id: string
+  content: string
+  extra: {
+    type: number
+    guild_id: string
+    channel_name: string
+    mention: Array<number>
+    mention_all: false
+    mention_roles: Array<number>
+    mention_here: false
+    author: {
+      id: string
+      username: string
+      identify_num: string
+      online: true
+      os: string
+      status: 1
+      avatar: string
+      vip_avatar: string
+      banner: string
+      nickname: string
+      roles: Array<number>
+      is_vip: false
+      is_ai_reduce_noise: true
+      is_personal_card_bg: false
+      bot: false
+    }
+    last_msg_content: string
+    send_msg_device: number
+    attachments: {
+      type: string
+      name: string
+      url: string
+    }
+  }
+  msg_id: string
+  msg_timestamp: number
+  nonce: string
+  from_type: 1
+  verify_token: string
+}
+
 interface messageD {
   channel_type: string
   type: number
@@ -103,4 +149,4 @@ interface baseEvent<T> {
   sn?: number
 }
 
-export { baseEvent, challengeD, messageD, joinChannelD, exitChannelD }
+export { baseEvent, challengeD, messageD, joinChannelD, exitChannelD, picMsgD }

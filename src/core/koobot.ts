@@ -2,9 +2,8 @@ import Koa from 'koa'
 import paser from 'koa-bodyparser'
 
 import { logger } from '../utils/winston'
-import { wordsEvent } from '../events/messageEvent'
-import { exitChannelEvent } from '../events/userEvent'
-import { joinChannelEvent } from './../events/userEvent'
+import { wordsEvent, pictureEvent } from '../events/messageEvent'
+import { joinChannelEvent, exitChannelEvent } from './../events/userEvent'
 
 import type { botConfig } from '../types/botConfig'
 import type {
@@ -12,7 +11,8 @@ import type {
   challengeD,
   messageD,
   exitChannelD,
-  joinChannelD
+  joinChannelD,
+  picMsgD
 } from '../types/event'
 
 class Koobot {
@@ -58,6 +58,17 @@ class Koobot {
       if (commonBody.d.extra.type === 9) {
         const body = commonBody as baseEvent<messageD>
         wordsEvent({
+          qq_http: this.qq_http,
+          group_id: this.qq_group,
+          messageBody: body
+        })
+        return
+      }
+
+      // 图片消息
+      if (commonBody.d.extra.type === 2) {
+        const body = commonBody as baseEvent<picMsgD>
+        pictureEvent({
           qq_http: this.qq_http,
           group_id: this.qq_group,
           messageBody: body
