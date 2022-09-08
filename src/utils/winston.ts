@@ -8,7 +8,12 @@ const customFormat = format.combine(
 
 const logger = createLogger({
   format: customFormat,
-  transports: [new transports.Console()]
+  transports: [
+    new transports.Console(),
+    new transports.File({
+      filename: 'logs/koobot.log'
+    })
+  ]
 })
 
 export { logger }

@@ -1,4 +1,11 @@
 node_modules
 dist
+
+# json 示例
 example
+
+# 用户数据
 src/data
+
+# 日志
+logs

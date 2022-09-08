@@ -14,7 +14,11 @@ export const wordsEvent = (param: wordsParam) => {
   let cq_code = ''
   if (mentionArr.length !== 0) {
     for (let i = 0; i < mentionArr.length; i++) {
-      cq_code += `[CQ:at,qq=${userMap.get(mentionArr[i])}] `
+      let qqNumber = userMap.get(mentionArr[i])
+      if (qqNumber === undefined) {
+        continue
+      }
+      cq_code += ` [CQ:at,qq=${qqNumber}]`
     }
   }
 
@@ -22,6 +26,6 @@ export const wordsEvent = (param: wordsParam) => {
     group_id: param.group_id,
     message: `[来自 KooK] ${param.messageBody.d.extra.author.nickname}: ${
       param.messageBody.d.extra.kmarkdown.raw_content
-    } ${mentionArr.length !== 0 ? cq_code : ''}`
+    }${mentionArr.length !== 0 ? cq_code : ''}`
   })
 }
