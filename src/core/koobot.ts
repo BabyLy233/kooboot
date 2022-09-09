@@ -2,6 +2,7 @@ import Koa from 'koa'
 import paser from 'koa-bodyparser'
 
 import { logger } from '../utils/winston'
+import { SERVER_PORT } from '../utils/envConstant'
 import { wordsEvent, pictureEvent } from '../events/messageEvent'
 import { joinChannelEvent, exitChannelEvent } from './../events/userEvent'
 
@@ -101,8 +102,8 @@ class Koobot {
       await next()
     })
 
-    app.listen(3000, () => {
-      logger.info('koobot机器人实例创建成功 - 端口 : 3000')
+    app.listen(SERVER_PORT, () => {
+      logger.info(`koobot机器人实例创建成功 - 端口 : ${SERVER_PORT}`)
     })
   }
 }

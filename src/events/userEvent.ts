@@ -17,6 +17,11 @@ interface joinParam {
   messageBody: baseEvent<joinChannelD>
 }
 
+/**
+ * 用户退出频道事件
+ *
+ * @param param 退出频道消息体参数
+ */
 export const exitChannelEvent = (param: exitParam) => {
   getUserInfo(param.messageBody.d.extra.body.user_id)
     .then((res) => {
@@ -34,6 +39,11 @@ export const exitChannelEvent = (param: exitParam) => {
     })
 }
 
+/**
+ * 用户加入频道事件
+ *
+ * @param param 加入频道消息体参数
+ */
 export const joinChannelEvent = (param: joinParam) => {
   getUserInfo(param.messageBody.d.extra.body.user_id)
     .then((res) => {

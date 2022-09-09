@@ -8,6 +8,11 @@ interface messageParam<T> {
   messageBody: baseEvent<T>
 }
 
+/**
+ * 文字消息事件 （KMarkDown）
+ *
+ * @param param 消息体参数<文字消息>
+ */
 export const wordsEvent = (param: messageParam<messageD>) => {
   // 检查是否有提到用户
   let mentionArr = param.messageBody.d.extra.mention
@@ -30,6 +35,11 @@ export const wordsEvent = (param: messageParam<messageD>) => {
   })
 }
 
+/**
+ * 图片消息事件
+ *
+ * @param param 消息体参数<图片消息>
+ */
 export const pictureEvent = (param: messageParam<picMsgD>) => {
   request.post(`${param.qq_http}/send_group_msg`, {
     group_id: param.group_id,

@@ -9,3 +9,6 @@ src/data
 
 # 日志
 logs
+
+# 环境变量配置文件
+.env

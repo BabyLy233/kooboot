@@ -1,10 +1,12 @@
 import axios from 'axios'
 
+import { KOOK_TOKEN } from '../utils/envConstant'
+
 const instance = axios.create({
   baseURL: 'https://www.kookapp.cn',
   timeout: 5000,
   headers: {
-    Authorization: 'Bot 1/MTE0NjE=/0h07wfPV4K7SppQjCpVAIQ=='
+    Authorization: `Bot ${KOOK_TOKEN}`
   }
 })
 

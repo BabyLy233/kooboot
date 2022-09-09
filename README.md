@@ -8,12 +8,15 @@
 - axios 0.27.2
 - winston 3.8.1
 - typescript 4.8.2
+- dotenv 16.0.2
 
 ## Windows 快速启动
-1. 修改 `index.ts` 中的 QQ群号 和 go-cqhttp 的正向代理地址
-2. pnpm install
-3. pnpm run serve
-4. 配合 go-cqhttp 即可开始使用
+1. 复制一份 `.env-sample` 重命名为 `.env` 作为应用配置文件
+2. 参照注释修改 `.env` 中的内容
+3. pnpm install 安装依赖 ( npm / yarn )
+4. tsc 编译源码
+5. node ./dist/index.js 启动应用
+6. 配合 go-cqhttp 即可开始使用
 
 ## RoadMap
 - [x] 文字消息
