@@ -12,7 +12,7 @@ import type { weather } from '../types/weather'
  */
 const CronJob = cron.CronJob
 const getTomorrowWeather = new CronJob(
-  '* 0 21 * * *',
+  '0 0 21 * * *',
   () => {
     request
       .get(`https://devapi.qweather.com/v7/weather/3d?key=${WEATHER_KEY}`)
