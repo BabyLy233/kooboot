@@ -8,16 +8,16 @@ import { WEATHER_KEY } from '../utils/envConstant'
 import type { weather } from '../types/weather'
 
 /**
- * 创建 定时任务 每天上午 7点 发布当日天气
+ * 创建 定时任务 每天晚上 9点 发布次日天气
  */
 const CronJob = cron.CronJob
-const todayWeather = new CronJob(
-  '* * 7 * * *',
+const getTomorrowWeather = new CronJob(
+  '* 0 21 * * *',
   () => {
     request
       .get(`https://devapi.qweather.com/v7/weather/3d?key=${WEATHER_KEY}`)
       .then((res) => {
-        const todayWeather: weather = res.data.daily[0]
+        const tomorrow: weather = res.data.daily[1]
         logger.info('获取到天气数据，准备推送')
         sendChannelMessage({
           type: 10,
@@ -32,7 +32,7 @@ const todayWeather = new CronJob(
                   type: 'header',
                   text: {
                     type: 'plain-text',
-                    content: `常州市 ${todayWeather.fxDate} 天气报告`
+                    content: `常州市 ${tomorrow.fxDate} 天气预报`
                   }
                 },
                 {
@@ -43,11 +43,11 @@ const todayWeather = new CronJob(
                     fields: [
                       {
                         type: 'kmarkdown',
-                        content: `**最高气温**\n${todayWeather.tempMax} °C`
+                        content: `**最高气温**\n${tomorrow.tempMax} °C`
                       },
                       {
                         type: 'kmarkdown',
-                        content: `**最低气温**\n${todayWeather.tempMin} °C`
+                        content: `**最低气温**\n${tomorrow.tempMin} °C`
                       }
                     ]
                   }
@@ -60,11 +60,11 @@ const todayWeather = new CronJob(
                     fields: [
                       {
                         type: 'kmarkdown',
-                        content: `**白天天气状况**\n${todayWeather.textDay}`
+                        content: `**白天天气状况**\n${tomorrow.textDay}`
                       },
                       {
                         type: 'kmarkdown',
-                        content: `**夜间天气状况**\n${todayWeather.textNight}`
+                        content: `**夜间天气状况**\n${tomorrow.textNight}`
                       }
                     ]
                   }
@@ -101,4 +101,4 @@ const todayWeather = new CronJob(
   'utc+8'
 )
 
-export { todayWeather }
+export { getTomorrowWeather }
