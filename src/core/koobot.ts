@@ -4,7 +4,7 @@ import paser from 'koa-bodyparser'
 import { logger } from '../utils/winston'
 import { SERVER_PORT } from '../utils/envConstant'
 import { wordsEvent, pictureEvent } from '../events/messageEvent'
-import { joinChannelEvent, exitChannelEvent } from './../events/userEvent'
+import { joinChannelEvent, exitChannelEvent } from '../events/userEvent'
 
 import type { botConfig } from '../types/botConfig'
 import type {
